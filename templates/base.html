@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>MindMetrics</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+       
+        <div class="logo">
+            <img src="{{ url_for('static', filename='img/logo.png') }}" alt="logo">
+            
+
+        </div>
+        
+        <ul class="menu">
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/proyecto">Proyecto</a></li>
+            <li><a href="/dataset">Dataset</a></li>
+            <li><a href="/analisis">Análisis</a></li>
+            <li><a href="/kpis">KPIs</a></li>
+            <li><a href="/modelo">Modelo IA</a></li>
+        </ul>
+
+        <div class="cta">
+            <a href="/analisis" class="btn">Explorar análisis</a>
+        </div>
+    </nav>
+
+    <div class="content">
+        {% block content %}{% endblock %}
+        
+    </div>
+
+    </body>
+</html>
