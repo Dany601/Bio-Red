@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="proyecto-page">
+    <div class="proyecto-top">
+        <p class="proyecto-kicker">SOBRE EL PROYECTO</p>
+
+        <h1 class="proyecto-title">
+            ¿Por qué estudiar el impacto
+            <span>digital en los jóvenes?</span>
+        </h1>
+
+        <p class="proyecto-intro">
+            En la era digital, los adolescentes pasan más tiempo en redes sociales que en
+            cualquier otra actividad de ocio. Este estudio busca cuantificar y comprender ese
+            impacto.
+        </p>
+    </div>
+
+    <div class="proyecto-grid">
+        <div class="proyecto-image-card">
+            <img src="{{ url_for('static', filename='img/proyecto-jovenes.jpg') }}" alt="Jóvenes usando redes sociales">
+
+            <div class="dataset-overlay">
+                <div class="dataset-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M9 2h6l1 2h3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h3l1-2zm0 6H7v10h10V8H9zm2 2h4v2h-4v-2zm0 4h4v2h-4v-2z"/>
+                    </svg>
+                </div>
+                <div class="dataset-info">
+                    <h3>Dataset validado</h3>
+                    <p>1,200 participantes · 15 variables</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="proyecto-text-card">
+            <div class="proyecto-block">
+                <h2>Propósito del estudio</h2>
+                <p>
+                    Este proyecto analiza datos reales de adolescentes entre 13 y 19 años para
+                    identificar patrones de comportamiento digital y su correlación con indicadores de
+                    salud mental como el estrés, la ansiedad y la calidad del sueño.
+                </p>
+            </div>
+
+            <div class="proyecto-block">
+                <h2>Importancia actual</h2>
+                <p>
+                    La Organización Mundial de la Salud reporta un aumento del 25% en trastornos
+                    de ansiedad en jóvenes desde 2020. El uso intensivo de redes sociales es uno de
+                    los factores más estudiados en este fenómeno global.
+                </p>
+            </div>
+
+            <div class="proyecto-stats">
+                <div class="proyecto-stat-box">
+                    <h3>95%</h3>
+                    <p>de adolescentes usan redes sociales diariamente</p>
+                </div>
+
+                <div class="proyecto-stat-box">
+                    <h3>3x</h3>
+                    <p>más riesgo de ansiedad con +5h diarias en redes</p>
+                </div>
+
+                <div class="proyecto-stat-box">
+                    <h3>2026</h3>
+                    <p>año en que se proyecta el mayor impacto digital</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="proyecto-features">
+        <div class="feature-card">
+            <div class="feature-icon icon-purple">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 20V10h3v10H4zm6 0V4h3v16h-3zm6 0v-7h3v7h-3z"/>
+                </svg>
+            </div>
+            <h3>Análisis Estadístico</h3>
+            <p>
+                Exploramos correlaciones entre el tiempo en redes sociales y los indicadores de salud mental mediante técnicas estadísticas avanzadas.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon icon-purple">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 2a3 3 0 0 1 3 3v1.1a5.98 5.98 0 0 1 2.26 1.31l.78-.45a3 3 0 1 1 3 5.2l-.79.45c.08.45.12.92.12 1.39s-.04.94-.12 1.39l.79.45a3 3 0 1 1-3 5.2l-.78-.45A5.98 5.98 0 0 1 15 21.9V23a3 3 0 1 1-6 0v-1.1a5.98 5.98 0 0 1-2.26-1.31l-.78.45a3 3 0 1 1-3-5.2l.79-.45A7.8 7.8 0 0 1 3.63 14c0-.47.04-.94.12-1.39l-.79-.45a3 3 0 1 1 3-5.2l.78.45A5.98 5.98 0 0 1 9 6.1V5a3 3 0 0 1 3-3zm0 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10z"/>
+                </svg>
+            </div>
+            <h3>Salud Mental Adolescente</h3>
+            <p>
+                Estudiamos el impacto en estrés, ansiedad y calidad del sueño en jóvenes de 13 a 19 años en entornos urbanos y rurales.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon icon-purple">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 2a7 7 0 0 1 7 7v3h1a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2h1V9a7 7 0 0 1 7-7zm5 10V9a5 5 0 0 0-10 0v3h10zm-5 3a2 2 0 0 1 1 3.73V20h-2v-1.27A2 2 0 0 1 12 15z"/>
+                </svg>
+            </div>
+            <h3>Modelos Predictivos</h3>
+            <p>
+                Aplicamos machine learning para identificar patrones de riesgo y predecir vulnerabilidades en el bienestar digital.
+            </p>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
