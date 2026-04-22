@@ -2,73 +2,48 @@
 
 {% block content %}
 
-<section class="dataset-page">
-    <div class="dataset-header">
-        <div class="dataset-header-left">
-            <p class="dataset-kicker">DESCRIPCIÓN DEL DATASET</p>
-            <h1 class="dataset-title">
-                Vista previa del
+<section class="analisis-page">
+
+    <div class="analisis-header">
+        <div>
+            <p class="analisis-kicker">ANÁLISIS DE DATOS</p>
+            <h1 class="analisis-title">
+                Exploración del
                 <span>dataset</span>
             </h1>
         </div>
 
-        <div class="dataset-header-right">
+        <div class="analisis-desc">
             <p>
-                Aquí se muestra una vista previa del dataset descargado desde Kaggle
-                para analizar comportamiento digital y bienestar emocional en adolescentes.
+                A continuación se muestra una vista previa del dataset utilizado
+                para analizar el impacto del uso de redes sociales en la salud mental de adolescentes.
             </p>
         </div>
     </div>
 
     {% if error %}
-        <div class="dataset-error">
-            <h3>Error al cargar el dataset</h3>
+        <div class="analisis-error">
             <p>{{ error }}</p>
         </div>
     {% else %}
 
-    <div class="dataset-summary">
-        <div class="dataset-summary-card">
-            <div class="summary-icon summary-green">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M12 3c4.97 0 9 1.79 9 4s-4.03 4-9 4-9-1.79-9-4 4.03-4 9-4zm-9 9V8.97C4.47 10.21 8 11 12 11s7.53-.79 9-2.03V12c0 2.21-4.03 4-9 4s-9-1.79-9-4zm0 5V13.97C4.47 15.21 8 16 12 16s7.53-.79 9-2.03V17c0 2.21-4.03 4-9 4s-9-1.79-9-4z"/>
-                </svg>
-            </div>
-            <div class="summary-info">
-                <h3>{{ total_registros }}</h3>
-                <p>Total de registros</p>
-            </div>
+    <div class="analisis-cards">
+        <div class="analisis-card">
+            <h3>{{ total_registros }}</h3>
+            <p>Registros</p>
         </div>
 
-        <div class="dataset-summary-card">
-            <div class="summary-icon summary-purple">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M4 20V10h3v10H4zm6 0V4h3v16h-3zm6 0v-7h3v7h-3z"/>
-                </svg>
-            </div>
-            <div class="summary-info">
-                <h3>{{ total_columnas }}</h3>
-                <p>Total de variables</p>
-            </div>
+        <div class="analisis-card">
+            <h3>{{ total_columnas }}</h3>
+            <p>Variables</p>
         </div>
     </div>
 
-    <div class="dataset-columns-box">
-        <h3>Columnas del dataset</h3>
-        <div class="dataset-columns-list">
-            {% for col in nombres_columnas %}
-                <span class="column-pill">{{ col }}</span>
-            {% endfor %}
-        </div>
-    </div>
+    <div class="tabla-container">
+        <h3>Vista previa del dataset</h3>
 
-    <div class="dataset-table-wrapper">
-        <div class="dataset-table-header">
-            <h3>Primeras filas del dataset</h3>
-        </div>
-
-        <div class="dataset-table-scroll">
-            <table class="dataset-table">
+        <div class="tabla-scroll">
+            <table class="tabla-dataset">
                 <thead>
                     <tr>
                         {% for col in columnas %}
@@ -76,6 +51,7 @@
                         {% endfor %}
                     </tr>
                 </thead>
+
                 <tbody>
                     {% for fila in filas %}
                         <tr>
@@ -90,6 +66,7 @@
     </div>
 
     {% endif %}
+
 </section>
 
 {% endblock %}
