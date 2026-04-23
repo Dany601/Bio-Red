@@ -1,7 +1,84 @@
 {% extends 'base.html' %}
 
+{% block title %}KPIs del estudio{% endblock %}
+
 {% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/kpis.css') }}">
 
-<h1></h1>
+<section class="kpis-page">
+  <div class="kpis-container">
+    <header class="kpis-hero">
+      <p class="kpis-eyebrow">Indicadores clave</p>
+      <h1 class="kpis-title">KPIs del <span>estudio</span></h1>
+      <p class="kpis-subtitle">
+        Los indicadores más relevantes extraídos del análisis de 1,200 adolescentes.
+      </p>
+    </header>
 
+    <section class="kpis-stats-grid">
+      <article class="kpi-card purple">
+        <div class="kpi-icon">📱</div>
+        <div>
+          <div class="kpi-value">
+            <span class="kpi-number">6.4</span>
+            <span class="kpi-unit">h/día</span>
+          </div>
+          <p class="kpi-label">Promedio horas en redes</p>
+          <p class="kpi-delta up">↑ +12% vs 2022</p>
+        </div>
+      </article>
+
+      <article class="kpi-card purple">
+        <div class="kpi-icon">🧠</div>
+        <div>
+          <div class="kpi-value">
+            <span class="kpi-number">68</span>
+            <span class="kpi-unit">%</span>
+          </div>
+          <p class="kpi-label">Con ansiedad elevada</p>
+          <p class="kpi-delta up">↑ +8% vs 2022</p>
+        </div>
+      </article>
+
+      <article class="kpi-card purple">
+        <div class="kpi-icon">🌙</div>
+        <div>
+          <div class="kpi-value">
+            <span class="kpi-number">5.8</span>
+            <span class="kpi-unit">h/noche</span>
+          </div>
+          <p class="kpi-label">Promedio horas de sueño</p>
+          <p class="kpi-delta down">↓ -0.6h vs 2022</p>
+        </div>
+      </article>
+           <article class="kpi-card purple">
+        <div class="kpi-icon">🫶</div>
+        <div>
+          <div class="kpi-value">
+            <span class="kpi-number">6.7</span>
+            <span class="kpi-unit">/10</span>
+          </div>
+          <p class="kpi-label">Nivel de estrés promedio</p>
+          <p class="kpi-delta up">↑ +0.9 vs 2022</p>
+        </div>
+      </article>
+   </section>
+
+    <section class="kpi-panel powerbi-panel">
+      <header class="kpi-panel-header">
+        <h2 class="kpi-panel-title">Dashboard Power BI </h2>
+        <p class="kpi-panel-subtitle">Visualización principal del estudio del impacto de las redes sociales en la salud mental de los adolescentes.
+      </header>
+
+      <div class="powerbi-wrapper">
+        <iframe
+            title="Impacto de las redes sociales en la salud mental de los adolescentes"
+            src="https://app.powerbi.com/view?r=eyJrIjoiZTM3YzhiNjEtNmYzYi00NzgwLWI5NmItYTk5YWY3ZjQ3MWMyIiwidCI6IjA3ZGE2N2EwLTFmNDMtNGU4Yy05NzdmLTVmODhiNjQ3MGVlNiIsImMiOjR9"
+            frameborder="0"
+            allowfullscreen="true">
+        </iframe>
+      </div>
+    </section>
+  </div>
+</section>
 {% endblock %}
