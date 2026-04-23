@@ -1,23 +1,23 @@
-import os
-import glob
 import pandas as pd
 import kagglehub
+from kagglehub import KaggleDatasetAdapter
 from flask import Flask, render_template
 
 app = Flask(__name__)
 
+# Ajusta esta ruta local si ya descargaste el archivo CSV en tu equipo.
+# Si la dejas vacía, kagglehub intentará cargar el dataset desde la fuente.
+file_path = ""
+
 
 def cargar_dataset():
     try:
-        path = kagglehub.dataset_download("algozee/teenager-menthal-healy")
-
-        # Buscar CSV
-        archivos = glob.glob(os.path.join(path, "*.csv"))
-
-        if not archivos:
-            return None, "No se encontró archivo CSV"
-
-        df = pd.read_csv(archivos[0])
+        df = kagglehub.load_dataset(
+            KaggleDatasetAdapter.PANDAS,
+            "algozee/teenager-menthal-healy",
+            file_path,
+            # pandas_kwargs={"low_memory": False}  # Ajusta si tu CSV es muy grande
+        )
 
         return df, None
 
