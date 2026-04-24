@@ -1,7 +1,7 @@
 import pandas as pd
 import kagglehub
 from kagglehub import KaggleDatasetAdapter
-from flask import Flask, render_template
+from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
 
@@ -53,11 +53,62 @@ def kpis():
 @app.route('/modelo')
 def modelo():
     return render_template('modelo.html')
+def calc_risk(hours, sleep, stress, anxiety, activity):
+    score = (
+        hours * 0.3 +
+        (10 - sleep) * 0.25 +
+        stress * 0.2 +
+        anxiety * 0.2 +
+        (7 - activity) * 0.05
+    )
+
+    risk = round((score / 10) * 100)
+
+    return min(risk, 100)
+
+
+@app.route('/predict', methods=['POST'])
+def predict():
+    data = request.get_json()
+
+    hours = float(data.get('hours', 0))
+    sleep = float(data.get('sleep', 1))
+    stress = float(data.get('stress', 1))
+    anxiety = float(data.get('anxiety', 1))
+    activity = float(data.get('activity', 0))
+
+    risk = calc_risk(hours, sleep, stress, anxiety, activity)
+
+    if risk < 35:
+        level = "Riesgo bajo"
+        message = "El perfil muestra indicadores saludables. Se recomienda mantener buenos hábitos digitales, descanso adecuado y actividad física constante."
+        color = "low"
+    elif risk < 65:
+        level = "Riesgo moderado"
+        message = "Riesgo moderado detectado. Se sugiere reducir el tiempo en redes, mejorar la calidad del sueño y monitorear niveles de estrés."
+        color = "medium"
+    else:
+        level = "Riesgo alto"
+        message = "Riesgo alto detectado. Se recomienda intervención profesional, acompañamiento familiar y reducción significativa del uso de redes sociales."
+        color = "high"
+
+    return jsonify({
+        'risk': risk,
+        'level': level,
+        'message': message,
+        'color': color
+    })
+
+
 
 @app.route('/analisis')
 def analisis():
     return render_template('analisis.html')
 
+
+@app.route('/infoproyecto')
+def infoproyecto():
+    return render_template('infoproyecto.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
