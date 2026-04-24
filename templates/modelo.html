@@ -1,7 +1,84 @@
 {% extends 'base.html' %}
 
-{% block content %}
+{% block title %}Modelo predictivo{% endblock %}
 
-<h1>MSe desarrollara modelo con IA que ayude a predecir si un chico tiene sintomas de depresion  </h1>
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/modelo.css') }}">
+
+<section class="modelo-page">
+  <div class="modelo-container">
+
+    <header class="modelo-hero">
+      <p class="modelo-eyebrow">MODELO PREDICTIVO</p>
+
+      <h1 class="modelo-title">
+        Predicción de <span>riesgo con IA</span>
+      </h1>
+
+      <p class="modelo-subtitle">
+        Ingresa los datos del adolescente y nuestro modelo de machine learning estimará
+        el nivel de riesgo para su salud mental.
+      </p>
+    </header>
+
+    <section class="modelo-card">
+      <form class="modelo-form">
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Edad</label>
+            <input type="number" placeholder="Ej: 16" min="13" max="19">
+          </div>
+
+          <div class="form-group">
+            <label>Horas en redes sociales</label>
+            <input type="number" placeholder="Ej: 6" min="0" step="0.1">
+          </div>
+
+          <div class="form-group">
+            <label>Horas de sueño</label>
+            <input type="number" placeholder="Ej: 7" min="0" step="0.1">
+          </div>
+
+          <div class="form-group">
+            <label>Nivel de estrés</label>
+            <select>
+              <option>Selecciona una opción</option>
+              <option>Bajo</option>
+              <option>Medio</option>
+              <option>Alto</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Actividad física semanal</label>
+            <select>
+              <option>Selecciona una opción</option>
+              <option>Baja</option>
+              <option>Moderada</option>
+              <option>Alta</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Calidad del sueño</label>
+            <select>
+              <option>Selecciona una opción</option>
+              <option>Mala</option>
+              <option>Regular</option>
+              <option>Buena</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="modelo-btn">
+          Predecir riesgo
+        </button>
+
+      </form>
+    </section>
+
+  </div>
+</section>
 
 {% endblock %}
