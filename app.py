@@ -106,9 +106,9 @@ def analisis():
     return render_template('analisis.html')
 
 
-@app.route('/infoproyecto')
-def infoproyecto():
-    return render_template('infoproyecto.html')
+@app.route('/documentacion')
+def documentacion():
+    return render_template('documentacion.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

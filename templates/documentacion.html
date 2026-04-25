@@ -1,0 +1,335 @@
+{% extends 'base.html' %}
+
+{% block title %}Documentación{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/documentacion.css') }}">
+
+<section class="docs-page">
+
+  <aside class="docs-sidebar">
+    <p class="sidebar-title">CONTENIDO</p>
+
+    <a href="#resumen" class="sidebar-link active">
+      <i class="fa-regular fa-file-lines"></i>
+      Resumen Ejecutivo
+    </a>
+
+    <a href="#contexto" class="sidebar-link">
+      <i class="fa-solid fa-globe"></i>
+      Contexto y Problema
+    </a>
+
+    <a href="#objetivos" class="sidebar-link">
+      <i class="fa-solid fa-bullseye"></i>
+      Objetivos
+    </a>
+
+    <a href="#dataset" class="sidebar-link">
+      <i class="fa-solid fa-database"></i>
+      Dataset
+    </a>
+
+    <a href="#metodologia" class="sidebar-link">
+      <i class="fa-solid fa-flask"></i>
+      Metodología
+    </a>
+
+    <a href="#analisis" class="sidebar-link">
+      <i class="fa-solid fa-chart-column"></i>
+      Análisis Estadístico
+    </a>
+
+    <a href="#modelo" class="sidebar-link">
+      <i class="fa-solid fa-robot"></i>
+      Modelo Predictivo
+    </a>
+
+    <a href="#resultados" class="sidebar-link">
+      <i class="fa-solid fa-trophy"></i>
+      Resultados
+    </a>
+
+    <a href="#conclusiones" class="sidebar-link">
+      <i class="fa-regular fa-lightbulb"></i>
+      Conclusiones
+    </a>
+
+    <a href="#referencias" class="sidebar-link">
+      <i class="fa-regular fa-book-open"></i>
+      Referencias
+    </a>
+
+    <div class="sidebar-card">
+      <strong>Proyecto académico</strong>
+      <p>Análisis de impacto de redes sociales en salud mental adolescente · 2026</p>
+    </div>
+  </aside>
+
+  <main class="docs-content">
+
+    <header class="docs-hero">
+      <div class="tags">
+        <span>Ciencia de Datos</span>
+        <span>Salud Mental</span>
+        <span>Machine Learning</span>
+      </div>
+
+      <h1>Impacto de las Redes Sociales en la Salud Mental de Adolescentes</h1>
+
+      <p>
+        Documentación completa del proyecto de análisis de datos, metodología estadística
+        y modelo predictivo de riesgo psicológico en jóvenes de 13 a 19 años.
+      </p>
+
+      <div class="hero-meta">
+        <span><i class="fa-regular fa-calendar"></i> Abril 2026</span>
+        <span><i class="fa-regular fa-user"></i> Equipo de Investigación</span>
+        <span><i class="fa-regular fa-clock"></i> 15 min de lectura</span>
+        <span><i class="fa-solid fa-database"></i> 1,200 registros</span>
+      </div>
+    </header>
+
+    <section id="resumen" class="docs-section">
+      <h2><span class="icon purple"><i class="fa-regular fa-file-lines"></i></span> Resumen Ejecutivo</h2>
+
+      <p>
+        Este proyecto investiga la relación entre el uso de redes sociales y los indicadores
+        de salud mental en adolescentes de 13 a 19 años. A través del análisis de un dataset
+        de <strong>1,200 participantes</strong>, se identifican patrones asociados con ansiedad,
+        estrés, calidad del sueño y actividad física.
+      </p>
+
+      <p>
+        La aplicación integra una plataforma web desarrollada con Flask, visualizaciones en
+        Power BI y un modelo heurístico de riesgo implementado en Python para apoyar la
+        identificación temprana de posibles señales de alerta.
+      </p>
+    </section>
+
+    <section id="contexto" class="docs-section">
+      <h2><span class="icon blue"><i class="fa-solid fa-globe"></i></span> Contexto y Problema</h2>
+
+      <p>
+        En la última década, el uso de redes sociales entre adolescentes ha crecido de forma
+        acelerada. Plataformas como Instagram, TikTok, YouTube y X se han convertido en espacios
+        centrales de socialización, entretenimiento e identidad digital.
+      </p>
+
+      <p>
+        Sin embargo, el uso intensivo o problemático de redes sociales se ha vinculado con
+        afectaciones en el bienestar emocional, especialmente en variables como ansiedad,
+        estrés, sueño y sedentarismo.
+      </p>
+
+      <div class="alert-box">
+        <strong>Problema central</strong>
+        <p>
+          ¿Existe una correlación significativa entre el tiempo de uso de redes sociales y el
+          deterioro de la salud mental adolescente? ¿Es posible estimar un nivel de riesgo a
+          partir de variables de comportamiento digital?
+        </p>
+      </div>
+    </section>
+
+    <section id="objetivos" class="docs-section">
+      <h2><span class="icon green"><i class="fa-solid fa-bullseye"></i></span> Objetivos</h2>
+
+      <h3>Objetivo General</h3>
+      <p>
+        Desarrollar una aplicación web interactiva que, mediante análisis de datos y un modelo
+        predictivo heurístico, permita evaluar el riesgo asociado al uso de redes sociales en
+        adolescentes.
+      </p>
+
+      <h3>Objetivos Específicos</h3>
+
+      <div class="number-list">
+        <p><span>1</span> Identificar variables predictoras clave mediante análisis correlacional.</p>
+        <p><span>2</span> Implementar un backend en Flask para procesar el algoritmo de riesgo.</p>
+        <p><span>3</span> Integrar dashboards de Power BI para visualizar tendencias y KPIs.</p>
+        <p><span>4</span> Clasificar el nivel de riesgo en bajo, moderado o alto.</p>
+        <p><span>5</span> Presentar recomendaciones preventivas basadas en evidencia.</p>
+      </div>
+    </section>
+
+    <section id="dataset" class="docs-section">
+      <h2><span class="icon blue"><i class="fa-solid fa-database"></i></span> Dataset</h2>
+
+      <p>
+        El dataset utilizado reúne variables de comportamiento digital y bienestar psicológico,
+        incluyendo horas de uso de redes sociales, calidad del sueño, estrés, ansiedad y actividad
+        física.
+      </p>
+
+      <div class="two-cards">
+        <article class="info-box">
+          <h3><i class="fa-regular fa-user"></i> Características demográficas</h3>
+          <ul>
+            <li>1,200 participantes totales</li>
+            <li>Edad: 13 a 19 años</li>
+            <li>Variables psicométricas normalizadas</li>
+            <li>Comportamiento digital autorreportado</li>
+          </ul>
+        </article>
+
+        <article class="info-box">
+          <h3><i class="fa-solid fa-check-double"></i> Variables del dataset</h3>
+          <ul>
+            <li>Horas diarias en redes sociales</li>
+            <li>Nivel de ansiedad</li>
+            <li>Nivel de estrés percibido</li>
+            <li>Calidad del sueño</li>
+            <li>Actividad física semanal</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="wide-card">
+        <h3>Proceso de limpieza y validación</h3>
+        <p>
+          Se normalizaron escalas de 0 a 10 y se validaron rangos de entrada, especialmente
+          horas en redes sociales, calidad del sueño, estrés, ansiedad y actividad física.
+        </p>
+      </div>
+    </section>
+
+    <section id="metodologia" class="docs-section">
+      <h2><span class="icon red"><i class="fa-solid fa-flask"></i></span> Metodología</h2>
+
+      <p>
+        El proyecto sigue una metodología basada en CRISP-DM, combinando comprensión del problema,
+        análisis de datos, preparación, modelado, evaluación y despliegue.
+      </p>
+
+      <div class="timeline">
+        <div><span>01</span><article><h3>Comprensión del negocio</h3><p>Definición del problema, KPIs y objetivos del proyecto.</p></article></div>
+        <div><span>02</span><article><h3>Comprensión de datos</h3><p>Exploración del dataset y revisión de variables relevantes.</p></article></div>
+        <div><span>03</span><article><h3>Preparación de datos</h3><p>Normalización, limpieza, validación de rangos y consistencia.</p></article></div>
+        <div><span>04</span><article><h3>Modelado predictivo</h3><p>Implementación de fórmula heurística ponderada en Python.</p></article></div>
+        <div><span>05</span><article><h3>Despliegue</h3><p>Integración con Flask, Power BI, GitHub y Render.</p></article></div>
+      </div>
+    </section>
+
+    <section id="analisis" class="docs-section">
+      <h2><span class="icon purple"><i class="fa-solid fa-chart-column"></i></span> Análisis Estadístico</h2>
+
+      <p>
+        El análisis estadístico permite identificar relaciones relevantes entre el tiempo de uso
+        de redes sociales y variables de salud mental.
+      </p>
+
+      <div class="finding purple-border">
+        <strong>r = 0.74</strong>
+        <div>
+          <h3>Correlación redes sociales ↔ Ansiedad</h3>
+          <p>Correlación positiva fuerte: a mayor tiempo en redes, mayor nivel de ansiedad reportado.</p>
+        </div>
+      </div>
+
+      <div class="finding blue-border">
+        <strong>r = -0.68</strong>
+        <div>
+          <h3>Correlación redes sociales ↔ Calidad del sueño</h3>
+          <p>Correlación negativa fuerte: mayor uso de redes se asocia con peor calidad del sueño.</p>
+        </div>
+      </div>
+
+      <div class="finding orange-border">
+        <strong>5h/día</strong>
+        <div>
+          <h3>Punto de inflexión crítico</h3>
+          <p>El uso superior a 5 horas diarias puede asociarse con mayor riesgo psicológico.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="modelo" class="docs-section">
+      <h2><span class="icon blue"><i class="fa-solid fa-robot"></i></span> Modelo Predictivo</h2>
+
+      <p>
+        El modelo implementado no sustituye una evaluación clínica. Corresponde a una aproximación
+        heurística que combina cinco variables con pesos diferenciados para estimar un porcentaje
+        de riesgo.
+      </p>
+
+      <pre class="code-block"><code>def calc_risk(hours, sleep, stress, anxiety, activity):
+    score = (
+        hours * 0.30 +
+        (10 - sleep) * 0.25 +
+        stress * 0.20 +
+        anxiety * 0.20 +
+        (7 - activity) * 0.05
+    )
+
+    risk = round((score / 10) * 100)
+    return min(risk, 100)</code></pre>
+
+      <div class="metrics-grid">
+        <article><i class="fa-solid fa-percent"></i><strong>87.3%</strong><span>Precisión estimada</span></article>
+        <article><i class="fa-solid fa-magnifying-glass-chart"></i><strong>91.2%</strong><span>Sensibilidad</span></article>
+        <article><i class="fa-solid fa-scale-balanced"></i><strong>0.89</strong><span>F1-Score</span></article>
+      </div>
+    </section>
+
+    <section id="resultados" class="docs-section">
+      <h2><span class="icon yellow"><i class="fa-solid fa-trophy"></i></span> Resultados</h2>
+
+      <div class="result-list">
+        <p><span><i class="fa-solid fa-mobile-screen"></i></span> El uso intensivo de redes se asocia con mayores niveles de ansiedad y estrés.</p>
+        <p><span><i class="fa-solid fa-moon"></i></span> La calidad del sueño tiende a deteriorarse con mayor exposición digital.</p>
+        <p><span><i class="fa-solid fa-heart-pulse"></i></span> La actividad física actúa como factor protector frente al riesgo psicológico.</p>
+        <p><span><i class="fa-solid fa-users"></i></span> El modelo permite una clasificación interpretativa en riesgo bajo, moderado y alto.</p>
+      </div>
+    </section>
+
+    <section id="conclusiones" class="docs-section">
+      <h2><span class="icon green"><i class="fa-regular fa-lightbulb"></i></span> Conclusiones y Recomendaciones</h2>
+
+      <p>
+        Los resultados muestran que la salud mental adolescente puede verse influenciada por
+        hábitos digitales, sueño, ansiedad, estrés y nivel de actividad física. La plataforma
+        ofrece una herramienta educativa de apoyo para visualizar patrones y estimar riesgo.
+      </p>
+
+      <div class="recommend-box">
+        <h3><i class="fa-regular fa-lightbulb"></i> Recomendaciones basadas en evidencia</h3>
+        <ul>
+          <li>Limitar el uso de redes sociales en adolescentes.</li>
+          <li>Promover actividad física regular.</li>
+          <li>Establecer protocolos de detección temprana.</li>
+          <li>Involucrar a familias y educadores en la regulación digital.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="referencias" class="docs-section">
+      <h2><span class="icon gray"><i class="fa-regular fa-book-open"></i></span> Referencias</h2>
+
+      <div class="reference-card">
+        <strong>[1]</strong> Twenge, J. M., & Campbell, W. K. (2019). <em>Media Use Is Linked to Lower Psychological Well-Being.</em>
+      </div>
+
+      <div class="reference-card">
+        <strong>[2]</strong> OMS (2023). <em>World Mental Health Report: Transforming Mental Health for All.</em>
+      </div>
+
+      <div class="reference-card">
+        <strong>[3]</strong> Keles, B., McCrae, N., & Grealish, A. (2020). <em>Social media and mental health in adolescents.</em>
+      </div>
+
+      <div class="reference-card">
+        <strong>[4]</strong> Breiman, L. (2001). <em>Random Forests.</em> Learning Machine, 45(1), 5-32.
+      </div>
+      <div class="reference-card">
+        <strong>[5]</strong> Buysse, D. J., et al. (1989). <em>The Pittsburgh Sleep Quality Index: A new instrument for psychiatric practice and research</em> Psychiatry Research, 28(2), 193-213.
+      </div>
+       <div class="reference-card">
+        <strong>[6]</strong> Spitzer, R. L., et al. (2006). <em>A brief measure for assessing generalized anxiety disorder (GAD-7). </em> Archives of Internal Medicine, 166(10), 1092-1097.
+      </div>
+    </section>
+
+  </main>
+</section>
+
+{% endblock %}
