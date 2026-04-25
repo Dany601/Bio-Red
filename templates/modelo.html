@@ -10,75 +10,208 @@
 
     <header class="modelo-hero">
       <p class="modelo-eyebrow">MODELO PREDICTIVO</p>
-
       <h1 class="modelo-title">
         Predicción de <span>riesgo con IA</span>
       </h1>
-
       <p class="modelo-subtitle">
-        Ingresa los datos del adolescente y nuestro modelo de machine learning estimará
+        Ingresa los datos del adolescente y nuestro modelo estimará
         el nivel de riesgo para su salud mental.
       </p>
     </header>
 
-    <section class="modelo-card">
-      <form class="modelo-form">
+    <section class="modelo-grid">
 
-        <div class="form-grid">
-          <div class="form-group">
-            <label>Edad</label>
-            <input type="number" placeholder="Ej: 16" min="13" max="19">
-          </div>
+      <article class="modelo-card">
+        <h2 class="card-title">
+          <i class="fa-solid fa-square-poll-vertical"></i>
+          Parámetros de entrada
+        </h2>
 
-          <div class="form-group">
-            <label>Horas en redes sociales</label>
-            <input type="number" placeholder="Ej: 6" min="0" step="0.1">
+        <div class="slider-group">
+          <div class="slider-header">
+            <label>Horas en redes sociales (h/día)</label>
+            <span id="hoursValue">5h</span>
           </div>
-
-          <div class="form-group">
-            <label>Horas de sueño</label>
-            <input type="number" placeholder="Ej: 7" min="0" step="0.1">
-          </div>
-
-          <div class="form-group">
-            <label>Nivel de estrés</label>
-            <select>
-              <option>Selecciona una opción</option>
-              <option>Bajo</option>
-              <option>Medio</option>
-              <option>Alto</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label>Actividad física semanal</label>
-            <select>
-              <option>Selecciona una opción</option>
-              <option>Baja</option>
-              <option>Moderada</option>
-              <option>Alta</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label>Calidad del sueño</label>
-            <select>
-              <option>Selecciona una opción</option>
-              <option>Mala</option>
-              <option>Regular</option>
-              <option>Buena</option>
-            </select>
-          </div>
+          <input type="range" id="hours" min="0" max="12" value="5">
+          <div class="range-labels"><span>0</span><span>12</span></div>
         </div>
 
-        <button type="submit" class="modelo-btn">
+        <div class="slider-group">
+          <div class="slider-header">
+            <label>Calidad del sueño (1-10)</label>
+            <span id="sleepValue">7/10</span>
+          </div>
+          <input type="range" id="sleep" min="1" max="10" value="7">
+          <div class="range-labels"><span>1</span><span>10</span></div>
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-header">
+            <label>Nivel de estrés (1-10)</label>
+            <span id="stressValue">5/10</span>
+          </div>
+          <input type="range" id="stress" min="1" max="10" value="5">
+          <div class="range-labels"><span>1</span><span>10</span></div>
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-header">
+            <label>Nivel de ansiedad (1-10)</label>
+            <span id="anxietyValue">5/10</span>
+          </div>
+          <input type="range" id="anxiety" min="1" max="10" value="5">
+          <div class="range-labels"><span>1</span><span>10</span></div>
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-header">
+            <label>Actividad física (días/semana)</label>
+            <span id="activityValue">3 días</span>
+          </div>
+          <input type="range" id="activity" min="0" max="7" value="3">
+          <div class="range-labels"><span>0</span><span>7</span></div>
+        </div>
+
+        <button class="predict-btn" id="predictBtn" type="button">
+          <i class="fa-solid fa-robot"></i>
           Predecir riesgo
         </button>
+      </article>
 
-      </form>
+      <div class="modelo-right">
+
+        <article class="resultado-card" id="resultCard">
+          <h2 class="card-title">
+            <i class="fa-solid fa-chart-column"></i>
+            Resultado del modelo
+          </h2>
+
+          <div class="empty-result" id="emptyResult">
+            <div class="robot-icon">
+              <i class="fa-solid fa-robot"></i>
+            </div>
+            <p>Ajusta los parámetros y presiona “Predecir riesgo”</p>
+          </div>
+
+          <div class="result-content" id="resultContent">
+            <p class="risk-label" id="riskLabel"></p>
+            <h3 id="riskPercent">0%</h3>
+
+            <div class="progress-bar">
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
+
+            <p class="risk-message" id="riskMessage"></p>
+          </div>
+        </article>
+
+        <article class="info-card">
+          <h2>Sobre el modelo</h2>
+
+          <ul>
+            <li>
+              <i class="fa-solid fa-microchip"></i>
+              Modelo calculado desde Python Flask
+            </li>
+            <li>
+              <i class="fa-solid fa-percent"></i>
+              Resultado normalizado en escala 0-100
+            </li>
+            <li>
+              <i class="fa-solid fa-database"></i>
+              Basado en 5 variables de comportamiento
+            </li>
+            <li>
+              <i class="fa-solid fa-shield-heart"></i>
+              Clasificación: bajo, moderado o alto
+            </li>
+          </ul>
+        </article>
+
+      </div>
+
     </section>
-
   </div>
 </section>
+
+<script>
+  const hours = document.getElementById("hours");
+  const sleep = document.getElementById("sleep");
+  const stress = document.getElementById("stress");
+  const anxiety = document.getElementById("anxiety");
+  const activity = document.getElementById("activity");
+
+  const hoursValue = document.getElementById("hoursValue");
+  const sleepValue = document.getElementById("sleepValue");
+  const stressValue = document.getElementById("stressValue");
+  const anxietyValue = document.getElementById("anxietyValue");
+  const activityValue = document.getElementById("activityValue");
+
+  const predictBtn = document.getElementById("predictBtn");
+  const emptyResult = document.getElementById("emptyResult");
+  const resultContent = document.getElementById("resultContent");
+
+  const riskPercent = document.getElementById("riskPercent");
+  const riskLabel = document.getElementById("riskLabel");
+  const riskMessage = document.getElementById("riskMessage");
+  const progressFill = document.getElementById("progressFill");
+  const resultCard = document.getElementById("resultCard");
+
+  function updateValues() {
+    hoursValue.textContent = `${hours.value}h`;
+    sleepValue.textContent = `${sleep.value}/10`;
+    stressValue.textContent = `${stress.value}/10`;
+    anxietyValue.textContent = `${anxiety.value}/10`;
+    activityValue.textContent = `${activity.value} días`;
+  }
+
+  async function predictRisk() {
+    const response = await fetch('/predict', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        hours: Number(hours.value),
+        sleep: Number(sleep.value),
+        stress: Number(stress.value),
+        anxiety: Number(anxiety.value),
+        activity: Number(activity.value)
+      })
+    });
+
+    const data = await response.json();
+
+    emptyResult.style.display = "none";
+    resultContent.style.display = "block";
+
+    riskPercent.textContent = `${data.risk}%`;
+    riskLabel.textContent = data.level;
+    riskMessage.textContent = data.message;
+    progressFill.style.width = `${data.risk}%`;
+
+    resultCard.classList.remove("risk-low", "risk-medium", "risk-high");
+    progressFill.classList.remove("fill-low", "fill-medium", "fill-high");
+
+    if (data.color === "low") {
+      resultCard.classList.add("risk-low");
+      progressFill.classList.add("fill-low");
+    } else if (data.color === "medium") {
+      resultCard.classList.add("risk-medium");
+      progressFill.classList.add("fill-medium");
+    } else {
+      resultCard.classList.add("risk-high");
+      progressFill.classList.add("fill-high");
+    }
+  }
+
+  [hours, sleep, stress, anxiety, activity].forEach(slider => {
+    slider.addEventListener("input", updateValues);
+  });
+
+  predictBtn.addEventListener("click", predictRisk);
+
+  updateValues();
+</script>
 
 {% endblock %}
